@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/fav_24dp"
+            android:title="My Favorite"
+            />
+    </group>
+    <group android:id="@+id/group2">
+
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/later"
+            android:title="Watch Later"
+           />
+    </group>
+    <group android:id="@+id/group3">
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Videos" />
+    </group>
+    <group android:id="@+id/group4">
+
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Settings" />
+    </group>
+
+    <group android:id="@+id/group5">
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Share App" />
+    </group>
+    <group android:id="@+id/group6">
+
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/subscribe"
+            android:title="Subscribes" />
+    </group>
+    <group android:id="@+id/group7">
+
+        <item
+            android:id="@+id/nav_cast"
+            android:icon="@drawable/ic_cast_black_24dp"
+            android:title="Cast" />
+    </group>
+    <group android:id="@+id/group8">
+
+        <item
+            android:id="@+id/nav_sticker"
+            android:icon="@drawable/sticker"
+            android:title="Stickers" />
+    </group>
+    <group android:id="@+id/group9">
+
+        <item
+            android:id="@+id/nav_rateapp"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="Rate App" />
+
+    </group>
+    <group android:id="@+id/group11">
+
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@drawable/ic_error_black_24dp"
+            android:title="About US" />
+    </group>
+
+    <group android:id="@+id/group12">
+
+        <item
+            android:id="@+id/nav_privacy"
+            android:icon="@drawable/ic_error_black_24dp"
+            android:title="Privacy Policy" />
+    </group>
+    <group android:id="@+id/group13">
+
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_contact_mail_black_24dp"
+            android:title="Contact Us" />
+    </group>
+    <group android:id="@+id/group14">
+
+        <item
+            android:id="@+id/nav_advertise"
+            android:icon="@drawable/ic_trending_up_black_24dp"
+            android:title="Advertise With Us" />
+    </group>
+</menu>
+
+
+
+
+
+
