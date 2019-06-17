@@ -1,26 +1,33 @@
 package com.example.designer2.moviesapp.uisViews;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+import android.app.Dialog;
+
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import com.example.designer2.moviesapp.fragments.SubcatFragment;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -42,6 +49,7 @@ public class WeolcomeScreen extends AppCompatActivity
     RecyclerViewAdapterCircle adapterscircle;
     BookAdapterssssss bookAdapterssssss;
     ViewFlipper flipper;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +57,23 @@ public class WeolcomeScreen extends AppCompatActivity
         setContentView(R.layout.activity_weolcome_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+               // .add(R.id.content, SubcatFragment.newInstance())
+                .commit();
+
+        textView = findViewById(R.id.textfragment);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SubcatFragment fragment = new SubcatFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragcaontainer,fragment);
+                transaction.commit();
+
+            }
+        });
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -156,6 +181,29 @@ public class WeolcomeScreen extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
             Toast.makeText(getApplicationContext(), "You clicked on Subscribe", Toast.LENGTH_SHORT).show();
+
+        } else if (id == R.id.nav_rateapp){
+
+            final Dialog rankdialog = new Dialog(WeolcomeScreen.this,R.style.FullHeightDialog);
+            rankdialog.setContentView(R.layout.rating_alert_dialoge);
+            rankdialog.setCancelable(true);
+            RatingBar ratingBar = (RatingBar)rankdialog.findViewById(R.id.dialog_ratingbar);
+            //ratingBar.setRating(0);
+
+            TextView text = (TextView) rankdialog.findViewById(R.id.rank_dialog_text1);
+            text.setText("Rate this App");
+
+            Button updateButton = (Button) rankdialog.findViewById(R.id.rank_dialog_button);
+            updateButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    rankdialog.dismiss();
+                }
+            });
+            //now that the dialog is set up, it's time to show it
+            rankdialog.show();
+
+
 
         }
 

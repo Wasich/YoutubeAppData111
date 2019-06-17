@@ -1,18 +1,16 @@
 package com.example.designer2.moviesapp.uisViews;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.designer2.moviesapp.R;
-import com.example.designer2.moviesapp.adapters.BookAdapterssssss;
 //import com.example.designer2.moviesapp.adapters.RecyclerViewAdapter;
-import com.example.designer2.moviesapp.adapters.RecyclerViewAdapterCircle;
 import com.example.designer2.moviesapp.adapters.VideoListingAdapter;
 import com.example.designer2.moviesapp.model.VideosModel;
 import com.example.designer2.moviesapp.viewModel.VideoViewModel;
@@ -37,9 +35,9 @@ public class VideoListing extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        
+
 
 
 

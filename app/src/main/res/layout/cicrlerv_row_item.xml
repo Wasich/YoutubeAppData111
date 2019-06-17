@@ -11,7 +11,7 @@
 
 
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="80dp"
         android:layout_height="100dp"
         android:layout_centerInParent="true"
@@ -49,7 +49,7 @@
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
 

@@ -11,21 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".uisViews.WeolcomeScreen"
-            android:label="@string/title_activity_weolcome_screen"
+        <activity
+            android:name=".uisViews.WeolcomeScreen"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".uisViews.VideoListing"
+        <activity
+            android:name=".uisViews.VideoListing"
             android:label="Movies"
-            android:parentActivityName=".uisViews.WeolcomeScreen"/>
+            android:parentActivityName=".uisViews.WeolcomeScreen" />
         <activity android:name=".uisViews.YoutubePlayer" />
+        <activity android:name=".uisViews.SplashScreen" />
+        <activity android:name=".uisViews.WebviewYoutubePlayer"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
 
+        </activity>
     </application>
 
 </manifest>

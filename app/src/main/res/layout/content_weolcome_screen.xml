@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,7 @@
     tools:context=".uisViews.WeolcomeScreen"
     tools:showIn="@layout/app_bar_weolcome_screen"
     android:background="#121111"
+    android:id="@+id/fragcaontainer"
     >
 
     <ScrollView
@@ -42,8 +43,9 @@
                 android:textSize="18sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-            <android.support.v7.widget.RecyclerView
+                android:layout_marginRight="10dp"
+                android:id="@+id/textfragment"/>
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:id="@+id/recyclerViewcircle"
@@ -51,7 +53,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp">
 
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -67,7 +69,7 @@
 
 
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/recyclerView"
@@ -75,7 +77,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp">
 
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
+
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -87,7 +91,7 @@
                 android:layout_marginLeft="10dp"
                 />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/recyclerViewsss"
@@ -96,13 +100,15 @@
                 android:layout_marginRight="5dp"
                 >
 
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
+
+
     </ScrollView>
 
 
 
 
 
-</LinearLayout>
+</FrameLayout>

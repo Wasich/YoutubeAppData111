@@ -2,9 +2,9 @@ package com.example.designer2.moviesapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.designer2.moviesapp.R;
-import com.bumptech.glide.Glide;
+
 import com.example.designer2.moviesapp.uisViews.VideoListing;
-import com.example.designer2.moviesapp.uisViews.WeolcomeScreen;
 import com.example.designer2.moviesapp.model.VideosModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class BookAdapterssssss extends RecyclerView.Adapter<BookAdapterssssss.Re
        // holder.releaseDate.setText(books.getVolumeInfo().getPublishedDate());
         holder.bookTitle.setText(books.getVolumeInfo().getTitle());
        // holder.publisherName.setText(books.getVolumeInfo().getPublisher());
-        Glide.with(mContext)
+        Picasso.with(mContext)
                 .load(books.getVolumeInfo().getImageLinks().getThumbnail())
                 .into(holder.bookImage);
 

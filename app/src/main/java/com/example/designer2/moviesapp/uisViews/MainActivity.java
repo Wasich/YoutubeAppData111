@@ -87,6 +87,8 @@
 //                bookAdapterssssss.addAll(bookResponseModel.getItems());
 //               adapterscircle.addAll(bookResponseModel.getItems());
 //               // setlayout();
+
+
 //
 //                Log.e(TAG, "onChanged: " + bookResponseModel.getItems().size());
 //            }

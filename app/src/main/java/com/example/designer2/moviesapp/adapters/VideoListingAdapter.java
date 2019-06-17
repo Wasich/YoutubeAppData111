@@ -2,8 +2,8 @@ package com.example.designer2.moviesapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+
 import com.example.designer2.moviesapp.R;
 import com.example.designer2.moviesapp.model.VideosModel;
-import com.example.designer2.moviesapp.uisViews.VideoListing;
+import com.example.designer2.moviesapp.uisViews.WebviewYoutubePlayer;
 import com.example.designer2.moviesapp.uisViews.YoutubePlayer;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +50,13 @@ public class VideoListingAdapter extends RecyclerView.Adapter<VideoListingAdapte
         holder.time.setText(books.getVolumeInfo().getPublishedDate());
         holder.title.setText(books.getVolumeInfo().getTitle());
         holder.artist.setText(books.getVolumeInfo().getPublishedDate());
-        Glide.with(mContext)
+        Picasso.with(mContext)
                 .load(books.getVolumeInfo().getImageLinks().getThumbnail())
                 .into(holder.thumbnail);
         holder.contaner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,YoutubePlayer.class);
+                Intent intent = new Intent(mContext,WebviewYoutubePlayer.class);
                 mContext.startActivity(intent);
             }
         });
