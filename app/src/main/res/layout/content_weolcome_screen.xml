@@ -8,7 +8,7 @@
     tools:context=".uisViews.WeolcomeScreen"
     tools:showIn="@layout/app_bar_weolcome_screen"
     android:background="#121111"
-    android:id="@+id/fragcaontainer"
+
     >
 
     <ScrollView
@@ -45,6 +45,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:id="@+id/textfragment"/>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
@@ -54,6 +56,12 @@
                 android:layout_marginRight="5dp">
 
             </androidx.recyclerview.widget.RecyclerView>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragcaontainer"
+                >
+            </FrameLayout>
 
             <TextView
                 android:layout_width="match_parent"

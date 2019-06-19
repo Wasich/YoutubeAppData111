@@ -69,7 +69,7 @@ public class WeolcomeScreen extends AppCompatActivity
             public void onClick(View v) {
                 SubcatFragment fragment = new SubcatFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragcaontainer,fragment);
+                transaction.replace(R.id.fragcaontainer,fragment).addToBackStack(null);
                 transaction.commit();
 
             }

@@ -14,7 +14,6 @@
             android:layout_height="48dp"
             android:layout_marginTop="5dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_circle"
             android:background="#FFF"
             android:id="@+id/thumbnail_id"/>
 

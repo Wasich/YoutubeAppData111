@@ -3,6 +3,7 @@ package com.example.designer2.moviesapp.adapters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 
 import com.example.designer2.moviesapp.R;
+import com.example.designer2.moviesapp.fragments.SubcatFragment;
 import com.example.designer2.moviesapp.model.VideosModel;
 import com.example.designer2.moviesapp.uisViews.VideoListing;
 import com.squareup.picasso.Picasso;
@@ -55,8 +57,9 @@ public class RecyclerViewAdapterCircle extends RecyclerView.Adapter<RecyclerView
         holder.containers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,VideoListing.class);
-                mContext.startActivity(intent);
+                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+                SubcatFragment fragment = new SubcatFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragcaontainer,fragment).addToBackStack(null).commit();
             }
         });
 
