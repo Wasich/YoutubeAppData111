@@ -1,7 +1,9 @@
 package com.example.designer2.moviesapp.uisViews;
 
+import android.Manifest;
 import android.app.Dialog;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -38,8 +40,14 @@ import com.example.designer2.moviesapp.adapters.RecyclerViewAdapterCircle;
 import com.example.designer2.moviesapp.model.VideosModel;
 import com.example.designer2.moviesapp.viewModel.VideoViewModel;
 
+import java.util.List;
+
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
+
 public class WeolcomeScreen extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements EasyPermissions.PermissionCallbacks,NavigationView.OnNavigationItemSelectedListener {
 
 
     private static String TAG = WeolcomeScreen.class.getSimpleName();
@@ -60,8 +68,9 @@ public class WeolcomeScreen extends AppCompatActivity
 
         getSupportFragmentManager()
                 .beginTransaction()
-               // .add(R.id.content, SubcatFragment.newInstance())
+                // .add(R.id.content, SubcatFragment.newInstance())
                 .commit();
+        permsiionsruntime();
 
         textView = findViewById(R.id.textfragment);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -149,11 +158,11 @@ public class WeolcomeScreen extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-       // if (id == R.id.action_settings) {
-            return true;
-        }
+        // if (id == R.id.action_settings) {
+        return true;
+    }
 
-       // return super.onOptionsItemSelected(item);
+    // return super.onOptionsItemSelected(item);
     //}
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -242,5 +251,45 @@ public class WeolcomeScreen extends AppCompatActivity
         flipper.setAutoStart(true);
         flipper.setInAnimation(this,android.R.anim.fade_in);
         flipper.setOutAnimation(this,android.R.anim.fade_out);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode,permissions,grantResults,this);
+    }
+    @AfterPermissionGranted(123)
+    private void permsiionsruntime(){
+        String[] perms = {Manifest.permission.CAMERA,Manifest.permission.INTERNET,Manifest.permission.ACCESS_FINE_LOCATION};
+        if (EasyPermissions.hasPermissions(this,perms)){
+            Toast.makeText(this,"permission are granted",Toast.LENGTH_SHORT).show();
+            //Intent intent = new Intent(this,VideoListing.class);
+            //startActivity(intent);
+        }else {
+
+            EasyPermissions.requestPermissions(this,"We need permissions Camera and Internet and location",123,perms);
+        }
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this,perms)){
+            new AppSettingsDialog.Builder(this).build().show();
+
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==AppSettingsDialog.DEFAULT_SETTINGS_REQ_CODE){
+
+        }
     }
 }

@@ -54,5 +54,6 @@ dependencies {
     annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.2.0-alpha01'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.3'
+    implementation 'pub.devrel:easypermissions:3.0.0'
 
 }
