@@ -16,4 +16,8 @@ public interface ApiInterface {
     @GET("books/v1/volumes")
     Call<VideosModel> getBooksInfo(@Query("q") String queue);
 
+
+    @GET("books/vol/v2")
+    Call<VideosModel> getbooksinfro();
+
 }

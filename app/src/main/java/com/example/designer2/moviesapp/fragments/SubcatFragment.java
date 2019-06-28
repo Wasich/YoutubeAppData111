@@ -1,6 +1,7 @@
 package com.example.designer2.moviesapp.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -25,6 +26,7 @@ import com.example.designer2.moviesapp.adapters.RecyclerViewAdapterCircle;
 import com.example.designer2.moviesapp.model.VideosModel;
 import com.example.designer2.moviesapp.uisViews.VideoListing;
 import com.example.designer2.moviesapp.uisViews.WebviewYoutubePlayer;
+import com.example.designer2.moviesapp.uisViews.YoutubePlayer;
 import com.example.designer2.moviesapp.viewModel.VideoViewModel;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 
@@ -34,6 +36,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 public class SubcatFragment extends Fragment {
     private RecyclerView recyclerViewsss;
     BookAdapterssssssfragments bookAdapterssssss;
+    ProgressDialog progressDialog;
 
     View v;
 
@@ -52,11 +55,11 @@ public class SubcatFragment extends Fragment {
         bookAdapterssssss = new BookAdapterssssssfragments(this,R.layout.video_listing_row_items);
         recyclerViewsss.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewsss.setAdapter(bookAdapterssssss);
-
+        progressDialog = new ProgressDialog(getActivity());
         bookAdapterssssss.setOnItemClickListener(new BookAdapterssssssfragments.ClickListener() {
             @Override
             public void onItemClick(int position, View v) {
-                Intent intent = new Intent(getActivity(), VideoListing.class);
+                Intent intent = new Intent(getActivity(), YoutubePlayer.class);
                 startActivity(intent);
 
             }
@@ -67,11 +70,15 @@ public class SubcatFragment extends Fragment {
                 ViewModelProviders.of(this).get(VideoViewModel.class);
 
         observeViewModel(bookViewModel);
+        progressDialog.setMessage("Loading Please Wait....");
+        progressDialog.show();
 
 
 
         return v;
     }
+
+
 
 
 
@@ -92,6 +99,7 @@ public class SubcatFragment extends Fragment {
                 if (bookResponseModel != null)
 
                 bookAdapterssssss.addAll(bookResponseModel.getItems());
+                progressDialog.hide();
 
                 // setlayout();
 
@@ -100,5 +108,6 @@ public class SubcatFragment extends Fragment {
         });
 
     }
+
 
 }

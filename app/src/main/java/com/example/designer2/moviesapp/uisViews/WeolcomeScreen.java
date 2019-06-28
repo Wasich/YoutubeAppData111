@@ -7,7 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 
@@ -58,9 +61,10 @@ public class WeolcomeScreen extends AppCompatActivity
     BookAdapterssssss bookAdapterssssss;
     ViewFlipper flipper;
     TextView textView;
+    ProgressDialog progressDialog;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weolcome_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -79,10 +83,14 @@ public class WeolcomeScreen extends AppCompatActivity
                 SubcatFragment fragment = new SubcatFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragcaontainer,fragment).addToBackStack(null);
+
                 transaction.commit();
 
             }
         });
+
+
+        progressDialog = new ProgressDialog(this);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -120,6 +128,8 @@ public class WeolcomeScreen extends AppCompatActivity
                 ViewModelProviders.of(this).get(VideoViewModel.class);
 
         observeViewModel(bookViewModel);
+        progressDialog.setMessage("Loading Please Wait....");
+        progressDialog.show();
 
 
 
@@ -141,6 +151,7 @@ public class WeolcomeScreen extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+
     }
 
     @Override
@@ -234,6 +245,7 @@ public class WeolcomeScreen extends AppCompatActivity
                     bookAdapter.addAll(bookResponseModel.getItems());
                 bookAdapterssssss.addAll(bookResponseModel.getItems());
                 adapterscircle.addAll(bookResponseModel.getItems());
+                progressDialog.hide();
                 // setlayout();
 
                 Log.e(TAG, "onChanged: " + bookResponseModel.getItems().size());
@@ -292,4 +304,6 @@ public class WeolcomeScreen extends AppCompatActivity
 
         }
     }
+
+
 }

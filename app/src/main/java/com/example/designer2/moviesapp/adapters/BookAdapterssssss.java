@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.designer2.moviesapp.R;
 
+import com.example.designer2.moviesapp.uisViews.ExoPlayerView;
 import com.example.designer2.moviesapp.uisViews.VideoListing;
 import com.example.designer2.moviesapp.model.VideosModel;
 import com.squareup.picasso.Picasso;
@@ -57,7 +58,7 @@ public class BookAdapterssssss extends RecyclerView.Adapter<BookAdapterssssss.Re
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,VideoListing.class);
+                Intent intent = new Intent(mContext, ExoPlayerView.class);
                 mContext.startActivity(intent);
 
             }
