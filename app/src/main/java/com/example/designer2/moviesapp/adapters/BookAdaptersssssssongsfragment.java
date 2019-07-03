@@ -1,15 +1,11 @@
 package com.example.designer2.moviesapp.adapters;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -17,17 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.designer2.moviesapp.R;
 import com.example.designer2.moviesapp.fragments.MoviesFragment;
-import com.example.designer2.moviesapp.fragments.SubcatFragment;
+import com.example.designer2.moviesapp.fragments.SongsFragment;
 import com.example.designer2.moviesapp.model.VideosModel;
-import com.example.designer2.moviesapp.uisViews.VideoListing;
-import com.example.designer2.moviesapp.uisViews.WebviewYoutubePlayer;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class BookAdapterssssssfragments extends RecyclerView.Adapter<BookAdapterssssssfragments.RecyclerViewHolder> {
+public class BookAdaptersssssssongsfragment extends RecyclerView.Adapter<BookAdaptersssssssongsfragment.RecyclerViewHolder> {
 
     private List<VideosModel.ItemsBean> bookLists;
     private Context mContext;
@@ -35,7 +29,7 @@ public class BookAdapterssssssfragments extends RecyclerView.Adapter<BookAdapter
     private static ClickListener clickListener;
 
 
-    public BookAdapterssssssfragments(SubcatFragment context, int drawable) {
+    public BookAdaptersssssssongsfragment(SongsFragment context, int drawable) {
         //this.mContext = context;
         this.drawable = drawable;
 
@@ -44,22 +38,25 @@ public class BookAdapterssssssfragments extends RecyclerView.Adapter<BookAdapter
 
 
 
+
     @Override
-    public BookAdapterssssssfragments.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BookAdaptersssssssongsfragment.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new RecyclerViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(drawable, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final BookAdapterssssssfragments.RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final BookAdaptersssssssongsfragment.RecyclerViewHolder holder, int position) {
 
         VideosModel.ItemsBean books = bookLists.get(position);
-        holder.time.setText(books.getVolumeInfo().getPublishedDate());
-        holder.title.setText(books.getVolumeInfo().getTitle());
-        holder.artist.setText(books.getVolumeInfo().getPublishedDate());
+
+        // holder.releaseDate.setText(books.getVolumeInfo().getPublishedDate());
+        holder.bookTitle.setText(books.getVolumeInfo().getTitle());
+        // holder.publisherName.setText(books.getVolumeInfo().getPublisher());
         Picasso.with(mContext)
                 .load(books.getVolumeInfo().getImageLinks().getThumbnail())
-                .into(holder.thumbnail);
+                .into(holder.bookImage);
+
 
 
 
@@ -75,11 +72,11 @@ public class BookAdapterssssssfragments extends RecyclerView.Adapter<BookAdapter
     public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-        LinearLayout contaner;
-        ImageView thumbnail;
-        TextView title;
-        TextView time;
-        TextView artist;
+        //private TextView releaseDate;
+        private TextView bookTitle;
+        //private TextView publisherName;
+        private ImageView bookImage;
+        CardView container;
 
 
         public RecyclerViewHolder(View itemView) {
@@ -87,11 +84,11 @@ public class BookAdapterssssssfragments extends RecyclerView.Adapter<BookAdapter
 
             itemView.setOnClickListener(this);
 
-            contaner = itemView.findViewById(R.id.video_listing_container);
-            thumbnail = itemView.findViewById(R.id.thumbnail_id);
-            title = itemView.findViewById(R.id.titletxt);
-            time =  itemView.findViewById(R.id.date_id);
-            artist = itemView.findViewById(R.id.author_name);
+            // releaseDate = itemView.findViewById(R.id.publish_date);
+            bookTitle = itemView.findViewById(R.id.category_title_id);
+            // publisherName = itemView.findViewById(R.id.publisher_name);
+            bookImage = itemView.findViewById(R.id.category_img_id);
+            container = itemView.findViewById(R.id.grid_card);
 
         }
 
@@ -113,7 +110,7 @@ public class BookAdapterssssssfragments extends RecyclerView.Adapter<BookAdapter
     }
 
     public void setOnItemClickListener(ClickListener clickListener) {
-        BookAdapterssssssfragments.clickListener = clickListener;
+        BookAdaptersssssssongsfragment.clickListener = clickListener;
     }
 
     public interface ClickListener {

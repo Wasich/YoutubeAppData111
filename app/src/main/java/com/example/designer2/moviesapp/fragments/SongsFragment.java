@@ -5,62 +5,57 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ViewFlipper;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.example.designer2.moviesapp.R;
-import com.example.designer2.moviesapp.adapters.BookAdapterssssss;
-import com.example.designer2.moviesapp.adapters.BookAdapterssssssfragments;
-import com.example.designer2.moviesapp.adapters.RecyclerViewAdapterCircle;
+import com.example.designer2.moviesapp.adapters.BookAdapterssssssmoviesfragment;
+import com.example.designer2.moviesapp.adapters.BookAdaptersssssssongsfragment;
 import com.example.designer2.moviesapp.model.VideosModel;
-import com.example.designer2.moviesapp.uisViews.Tabactivity;
-import com.example.designer2.moviesapp.uisViews.VideoListing;
+import com.example.designer2.moviesapp.uisViews.ExoPlayerView;
 import com.example.designer2.moviesapp.uisViews.WebviewYoutubePlayer;
-import com.example.designer2.moviesapp.uisViews.YoutubePlayer;
+import com.example.designer2.moviesapp.uisViews.WeolcomeScreen;
 import com.example.designer2.moviesapp.viewModel.VideoViewModel;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SubcatFragment extends Fragment {
+public class SongsFragment extends Fragment {
     private RecyclerView recyclerViewsss;
-    BookAdapterssssssfragments bookAdapterssssss;
+    BookAdaptersssssssongsfragment bookAdapterssssss;
     ProgressDialog progressDialog;
+
 
     View v;
 
-
-    public SubcatFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        v= inflater.inflate(R.layout.fragment_subcat, container, false);
-        recyclerViewsss = (RecyclerView)v.findViewById(R.id.recyclerviewfragment);
-        bookAdapterssssss = new BookAdapterssssssfragments(this,R.layout.video_listing_row_items);
-        recyclerViewsss.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        v = inflater.inflate(R.layout.songs,container,false);
+        recyclerViewsss = (RecyclerView)v.findViewById(R.id.recyclerviewfragmentsongs);
+        bookAdapterssssss = new BookAdaptersssssssongsfragment(this,R.layout.gridrv_row_items2);
+        recyclerViewsss.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        // recyclerViewsss.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewsss.setAdapter(bookAdapterssssss);
         progressDialog = new ProgressDialog(getActivity());
-        bookAdapterssssss.setOnItemClickListener(new BookAdapterssssssfragments.ClickListener() {
+
+        bookAdapterssssss.setOnItemClickListener(new BookAdaptersssssssongsfragment.ClickListener() {
             @Override
             public void onItemClick(int position, View v) {
-                Intent intent = new Intent(getActivity(), Tabactivity.class);
+                Intent intent = new Intent(getActivity(), ExoPlayerView.class);
                 startActivity(intent);
 
             }
@@ -77,19 +72,12 @@ public class SubcatFragment extends Fragment {
 
 
         return v;
+
     }
-
-
-
-
-
-
     public void onClick(View v){
         Intent intent =  new Intent(getActivity(), WebviewYoutubePlayer.class);
         startActivity(intent);
     }
-
-
     private void observeViewModel(VideoViewModel bookViewModel) {
 
         // updating list based on data change
@@ -99,7 +87,7 @@ public class SubcatFragment extends Fragment {
 
                 if (bookResponseModel != null)
 
-                bookAdapterssssss.addAll(bookResponseModel.getItems());
+                    bookAdapterssssss.addAll(bookResponseModel.getItems());
                 progressDialog.hide();
 
                 // setlayout();
@@ -109,6 +97,9 @@ public class SubcatFragment extends Fragment {
         });
 
     }
+
+
+
 
 
 }

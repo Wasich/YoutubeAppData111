@@ -4,12 +4,14 @@ import android.Manifest;
 import android.app.Dialog;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ShareCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -29,6 +31,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -45,6 +49,8 @@ import com.example.designer2.moviesapp.viewModel.VideoViewModel;
 
 import java.util.List;
 
+import hotchemi.android.rate.AppRate;
+import hotchemi.android.rate.OnClickButtonListener;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -70,6 +76,8 @@ public class WeolcomeScreen extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        RateApp();
+
         getSupportFragmentManager()
                 .beginTransaction()
                 // .add(R.id.content, SubcatFragment.newInstance())
@@ -90,7 +98,11 @@ public class WeolcomeScreen extends AppCompatActivity
         });
 
 
+
+
+
         progressDialog = new ProgressDialog(this);
+
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -149,7 +161,9 @@ public class WeolcomeScreen extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+
             super.onBackPressed();
+
         }
 
     }
@@ -186,44 +200,69 @@ public class WeolcomeScreen extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "You clicked on My Favoriute", Toast.LENGTH_SHORT).show();
 
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            Toast.makeText(getApplicationContext(), "You clicked on Watch Later", Toast.LENGTH_SHORT).show();
+//        } else if (id == R.id.nav_gallery) {
+//            Toast.makeText(getApplicationContext(), "You clicked on Watch Later", Toast.LENGTH_SHORT).show();
 
-        } else if (id == R.id.nav_slideshow) {
-            startActivity(new Intent(WeolcomeScreen.this,VideoListing.class));
+//        } else if (id == R.id.nav_slideshow) {
+//            startActivity(new Intent(WeolcomeScreen.this,VideoListing.class));
+//
 
-
-        } else if (id == R.id.nav_manage) {
-            Toast.makeText(getApplicationContext(), "You clicked on Setting", Toast.LENGTH_SHORT).show();
+//        } else if (id == R.id.nav_manage) {
+//            Toast.makeText(getApplicationContext(), "You clicked on Setting", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(getApplicationContext(), "You can share app with your friends", Toast.LENGTH_SHORT).show();
+            ShareCompat.IntentBuilder.from(this)
+                    .setType("text/plain")
+                    .setChooserTitle("Chooser title")
+                    .setText("http://play.google.com/store/apps/details?id=" + this.getPackageName())
+                    .startChooser();
 
-        } else if (id == R.id.nav_send) {
-            Toast.makeText(getApplicationContext(), "You clicked on Subscribe", Toast.LENGTH_SHORT).show();
+//        } else if (id == R.id.nav_send) {
+//            Toast.makeText(getApplicationContext(), "You clicked on Subscribe", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_rateapp){
 
-            final Dialog rankdialog = new Dialog(WeolcomeScreen.this,R.style.FullHeightDialog);
-            rankdialog.setContentView(R.layout.rating_alert_dialoge);
-            rankdialog.setCancelable(true);
-            RatingBar ratingBar = (RatingBar)rankdialog.findViewById(R.id.dialog_ratingbar);
-            //ratingBar.setRating(0);
 
-            TextView text = (TextView) rankdialog.findViewById(R.id.rank_dialog_text1);
-            text.setText("Rate this App");
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=PackageName")));
+//            final Dialog rankdialog = new Dialog(WeolcomeScreen.this,R.style.FullHeightDialog);
+//            rankdialog.setContentView(R.layout.rating_alert_dialoge);
+//            rankdialog.setCancelable(true);
+//            RatingBar ratingBar = (RatingBar)rankdialog.findViewById(R.id.dialog_ratingbar);
+//            //ratingBar.setRating(0);
+//
+//            TextView text = (TextView) rankdialog.findViewById(R.id.rank_dialog_text1);
+//            text.setText("Rate this App");
+//
+//            Button updateButton = (Button) rankdialog.findViewById(R.id.rank_dialog_button);
+//            updateButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    rankdialog.dismiss();
+//                }
+//            });
+//            //now that the dialog is set up, it's time to show it
+//            rankdialog.show();
 
-            Button updateButton = (Button) rankdialog.findViewById(R.id.rank_dialog_button);
-            updateButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rankdialog.dismiss();
-                }
-            });
-            //now that the dialog is set up, it's time to show it
-            rankdialog.show();
 
 
+        } else if (id==R.id.nav_aboutus){
+            String url = "http://itelc.com/upcoming/company/team/";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+
+        } else if (id==R.id.nav_contact){
+            String url = "http://itelc.com/upcoming/company/about-us/";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+
+        }else if (id==R.id.nav_privacy) {
+            String url = "http://itelc.com/upcoming/privacy-policy/";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
 
         }
 
@@ -303,6 +342,35 @@ public class WeolcomeScreen extends AppCompatActivity
         if (requestCode==AppSettingsDialog.DEFAULT_SETTINGS_REQ_CODE){
 
         }
+    }
+
+    /*
+     * rating bar to show in the app
+     *
+     *
+     * */
+
+
+    private void RateApp(){
+        AppRate.with(this)
+                .setInstallDays(1)
+                .setLaunchTimes(3)
+                .setRemindInterval(1)
+                .setOnClickButtonListener(new OnClickButtonListener() {
+                    @Override
+                    public void onClickButton(int which) {
+                        if (which==-2){
+                            WeolcomeScreen.this.finish();
+
+
+                        }
+
+                    }
+                })
+                .monitor();
+
+        AppRate.showRateDialogIfMeetsConditions(this);
+       // AppRate.with(this).showRateDialog(this);
     }
 
 

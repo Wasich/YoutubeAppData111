@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="360p"
+            android:textColor="#000"
+            android:id="@+id/quality_360"
+            android:textSize="24sp"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7200p"
+            android:textColor="#000"
+            android:textSize="24sp"
+            android:id="@+id/qualtiy_720"
+            android:layout_below="@+id/quality_360"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1020p"
+            android:textColor="#000"
+            android:textSize="24sp"
+            android:id="@+id/qaulaty_1020"
+            android:layout_below="@id/qualtiy_720"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text"
+            android:textColor="#000"
+            android:textSize="24sp"
+            android:id="@+id/video_qauality_textview"
+            android:layout_below="@id/qaulaty_1020"/>
+
+
+
+
+
+    </RelativeLayout>
+
+
+    </LinearLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:id="@+id/parent"
+    android:keepScreenOn="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:visibility="visible"
+            android:id="@+id/root">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/middle"
+                android:layout_weight="1"
+                android:visibility="visible">
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/seekbar_time"
+                android:background="#96000000"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="00:00:00"
+                    android:id="@+id/txt_currentTime"
+                    android:textColor="#FFF"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp" />
+
+                <SeekBar
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekbar"
+                    android:layout_weight="1"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="00:00:00"
+                    android:id="@+id/txt_totalDuration"
+                    android:textColor="#FFF"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/controls"
+                android:paddingBottom="10dp"
+                android:background="#96000000"
+                android:visibility="visible">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="70dp">
+                    <ImageButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:id="@+id/btn_prev"
+                        android:layout_gravity="center"
+                        android:background="@null"
+                        android:layout_weight="1"
+                        android:src="@drawable/hplib_ic_previous"
+                        android:cropToPadding="false"
+                        android:layout_marginRight="24dp" />
+
+
+                    <ImageButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@null"
+                        android:layout_gravity="center"
+                        android:id="@+id/btn_rev"
+                        android:layout_weight="1"
+                        android:src="@drawable/hplib_ic_rewind"
+                        android:layout_marginRight="24dp" />
+
+                    <ImageButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@null"
+                        android:src="@drawable/hplib_ic_pause"
+                        android:layout_gravity="center"
+                        android:id="@+id/btn_pause"
+                        android:layout_weight="1"
+                        android:layout_marginRight="24dp" />
+                    <ImageButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@null"
+                        android:src="@drawable/hplib_ic_play_download"
+                        android:layout_gravity="center"
+                        android:id="@+id/btn_play"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:layout_marginRight="24dp" />
+
+                    <ImageButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="+30s"
+                        android:background="@null"
+                        android:layout_gravity="center"
+                        android:id="@+id/btn_fwd"
+                        android:layout_weight="1"
+                        android:src="@drawable/hplib_ic_forward"
+                        android:layout_marginRight="24dp" />
+
+                    <ImageButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:id="@+id/btn_next"
+                        android:layout_gravity="center"
+                        android:background="@null"
+                        android:layout_weight="1"
+                        android:src="@drawable/hplib_ic_next" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_sub"
+                    android:src="@drawable/ic_fullscreen_black_32dp"
+                    android:layout_weight="0"
+                    android:visibility="visible"
+                    android:background="@null"
+                    android:cropToPadding="false"
+                    android:layout_marginRight="24dp"
+                    android:alpha="1" />
+
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:text="Settings"
+                    android:id="@+id/btn_settings"
+                    android:src="@drawable/hplib_ic_settings"
+                    android:layout_weight="0"
+                    android:visibility="visible"
+                    android:background="@null"
+                    android:cropToPadding="false"
+                    android:layout_marginRight="24dp"
+                    android:alpha="1" />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+

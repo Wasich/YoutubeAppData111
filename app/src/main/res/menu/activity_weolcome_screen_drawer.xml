@@ -11,21 +11,22 @@
             android:title="My Favorite"
             />
     </group>
-    <group android:id="@+id/group2">
+    <!---->
+    <!--<group android:id="@+id/group2">-->
 
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/later"
-            android:title="Watch Later"
-           />
-    </group>
-    <group android:id="@+id/group3">
+        <!--<item-->
+            <!--android:id="@+id/nav_gallery"-->
+            <!--android:icon="@drawable/later"-->
+            <!--android:title="Watch Later"-->
+           <!--/>-->
+    <!--</group>-->
+    <!--<group android:id="@+id/group3">-->
 
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Videos" />
-    </group>
+        <!--<item-->
+            <!--android:id="@+id/nav_slideshow"-->
+            <!--android:icon="@drawable/ic_menu_slideshow"-->
+            <!--android:title="Videos" />-->
+    <!--</group>-->
     <group android:id="@+id/group4">
 
         <item
@@ -41,27 +42,29 @@
             android:icon="@drawable/ic_menu_share"
             android:title="Share App" />
     </group>
-    <group android:id="@+id/group6">
 
-        <item
-            android:id="@+id/nav_send"
-            android:icon="@drawable/subscribe"
-            android:title="Subscribes" />
-    </group>
-    <group android:id="@+id/group7">
+    <!--<group android:id="@+id/group6">-->
 
-        <item
-            android:id="@+id/nav_cast"
-            android:icon="@drawable/ic_cast_black_24dp"
-            android:title="Cast" />
-    </group>
-    <group android:id="@+id/group8">
+        <!--<item-->
+            <!--android:id="@+id/nav_send"-->
+            <!--android:icon="@drawable/subscribe"-->
+            <!--android:title="Subscribes" />-->
+    <!--</group>-->
+    <!--<group android:id="@+id/group7">-->
 
-        <item
-            android:id="@+id/nav_sticker"
-            android:icon="@drawable/sticker"
-            android:title="Stickers" />
-    </group>
+        <!--<item-->
+            <!--android:id="@+id/nav_cast"-->
+            <!--android:icon="@drawable/ic_cast_black_24dp"-->
+            <!--android:title="Cast" />-->
+    <!--</group>-->
+    <!--<group android:id="@+id/group8">-->
+
+        <!--<item-->
+            <!--android:id="@+id/nav_sticker"-->
+            <!--android:icon="@drawable/sticker"-->
+            <!--android:title="Stickers" />-->
+    <!--</group>-->
+    <!---->
     <group android:id="@+id/group9">
 
         <item
@@ -92,13 +95,13 @@
             android:icon="@drawable/ic_contact_mail_black_24dp"
             android:title="Contact Us" />
     </group>
-    <group android:id="@+id/group14">
+    <!--<group android:id="@+id/group14">-->
 
-        <item
-            android:id="@+id/nav_advertise"
-            android:icon="@drawable/ic_trending_up_black_24dp"
-            android:title="Advertise With Us" />
-    </group>
+        <!--<item-->
+            <!--android:id="@+id/nav_advertise"-->
+            <!--android:icon="@drawable/ic_trending_up_black_24dp"-->
+            <!--android:title="Advertise With Us" />-->
+    <!--</group>-->
 </menu>
 
 

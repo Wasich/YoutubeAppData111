@@ -202,6 +202,7 @@ public class ExoPlayerCustomise {
         playList = uriArrayList;
         playlistIndex = index;
         listner = callBack;
+
         playStream(playList.get(playlistIndex));
     }
 

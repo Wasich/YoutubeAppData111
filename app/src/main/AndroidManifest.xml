@@ -13,9 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".uisViews.ExoPlayerView"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:configChanges="orientation|screenSize"></activity>
+        <activity android:name=".uisViews.Tabactivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+        <activity
+            android:name=".uisViews.ExoPlayerView"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".uisViews.WeolcomeScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -34,7 +37,7 @@
         <activity
             android:name=".uisViews.WebviewYoutubePlayer"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>
