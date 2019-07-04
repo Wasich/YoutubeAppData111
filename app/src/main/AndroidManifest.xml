@@ -20,7 +20,7 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".uisViews.WeolcomeScreen"
+            android:name=".uisViews.SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,10 @@
             android:label="Movies"
             android:parentActivityName=".uisViews.WeolcomeScreen" />
         <activity android:name=".uisViews.YoutubePlayer" />
-        <activity android:name=".uisViews.SplashScreen" />
+        <activity android:name=".uisViews.WeolcomeScreen"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".drawerwithtab.Tabmaindrawer"
+            android:theme="@style/Theme.Design.Light.NoActionBar"/>
         <activity
             android:name=".uisViews.WebviewYoutubePlayer"
             android:configChanges="orientation|screenSize"

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.designer2.moviesapp.R;
 
+import com.example.designer2.moviesapp.drawerwithtab.Tabmaindrawer;
 import com.example.designer2.moviesapp.model.VideosModel;
 import com.example.designer2.moviesapp.uisViews.VideoListing;
 import com.example.designer2.moviesapp.uisViews.YoutubePlayer;
@@ -58,7 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,VideoListing.class);
+                Intent intent = new Intent(mContext, Tabmaindrawer.class);
                 mContext.startActivity(intent);
 
 

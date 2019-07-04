@@ -22,9 +22,9 @@
 //import com.example.designer2.moviesapp.model.VideosModel;
 //import com.example.designer2.moviesapp.viewModel.VideoViewModel;
 //
-//public class MainActivity extends AppCompatActivity  {
+//public class Tabmaindrawer extends AppCompatActivity  {
 //
-//    private static String TAG = MainActivity.class.getSimpleName();
+//    private static String TAG = Tabmaindrawer.class.getSimpleName();
 //    private RecyclerView recyclerView;
 //    RecyclerViewAdapter bookAdapter;
 //    private RecyclerView recyclerViewsss,circlerv;

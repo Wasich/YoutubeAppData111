@@ -19,6 +19,9 @@
 //import android.content.pm.PackageManager;
 //import android.net.Uri;
 //import android.os.Bundle;
+//import androidx.annotation.NonNull;
+//import androidx.annotation.Nullable;
+//import androidx.appcompat.app.AppCompatActivity;
 //import android.util.Pair;
 //import android.view.KeyEvent;
 //import android.view.View;
@@ -27,11 +30,6 @@
 //import android.widget.LinearLayout;
 //import android.widget.TextView;
 //import android.widget.Toast;
-//
-//import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable;
-//import androidx.appcompat.app.AppCompatActivity;
-//
 //import com.google.android.exoplayer2.C;
 //import com.google.android.exoplayer2.C.ContentType;
 //import com.google.android.exoplayer2.ExoPlaybackException;
@@ -48,17 +46,17 @@
 //import com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.DecoderInitializationException;
 //import com.google.android.exoplayer2.mediacodec.MediaCodecUtil.DecoderQueryException;
 //import com.google.android.exoplayer2.offline.DownloadHelper;
-//
+//import com.google.android.exoplayer2.offline.DownloadRequest;
 //import com.google.android.exoplayer2.source.BehindLiveWindowException;
 //import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
 //import com.google.android.exoplayer2.source.MediaSource;
-//
+//import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 //import com.google.android.exoplayer2.source.TrackGroupArray;
 //import com.google.android.exoplayer2.source.ads.AdsLoader;
 //import com.google.android.exoplayer2.source.ads.AdsMediaSource;
 //import com.google.android.exoplayer2.source.dash.DashMediaSource;
 //import com.google.android.exoplayer2.source.hls.HlsMediaSource;
-//
+//import com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 //import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 //import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 //import com.google.android.exoplayer2.trackselection.MappingTrackSelector.MappedTrackInfo;
@@ -68,19 +66,19 @@
 //import com.google.android.exoplayer2.ui.DebugTextViewHelper;
 //import com.google.android.exoplayer2.ui.PlayerControlView;
 //import com.google.android.exoplayer2.ui.PlayerView;
-//
+//import com.google.android.exoplayer2.ui.spherical.SphericalSurfaceView;
 //import com.google.android.exoplayer2.upstream.DataSource;
 //import com.google.android.exoplayer2.upstream.HttpDataSource;
 //import com.google.android.exoplayer2.util.ErrorMessageProvider;
 //import com.google.android.exoplayer2.util.EventLogger;
 //import com.google.android.exoplayer2.util.Util;
-//
 //import java.lang.reflect.Constructor;
 //import java.net.CookieHandler;
 //import java.net.CookieManager;
 //import java.net.CookiePolicy;
 //import java.util.UUID;
 //import com.example.designer2.moviesapp.R;
+//
 //
 ///** An activity that plays media using {@link SimpleExoPlayer}. */
 //public class PlayerActivity extends AppCompatActivity
@@ -218,6 +216,7 @@
 //    if (Util.SDK_INT > 23) {
 //      initializePlayer();
 //      if (playerView != null) {
+//
 //        playerView.onResume();
 //      }
 //    }
@@ -457,7 +456,7 @@
 //    player.prepare(mediaSource, !haveStartPosition, false);
 //    updateButtonVisibility();
 //  }
-//
+///*
 //  private MediaSource buildMediaSource(Uri uri) {
 //    return buildMediaSource(uri, null);
 //  }
@@ -482,7 +481,7 @@
 //        throw new IllegalStateException("Unsupported type: " + type);
 //    }
 //  }
-//
+//*/
 //  private DefaultDrmSessionManager<FrameworkMediaCrypto> buildDrmSessionManagerV18(
 //      UUID uuid, String licenseUrl, String[] keyRequestPropertiesArray, boolean multiSession)
 //      throws UnsupportedDrmException {

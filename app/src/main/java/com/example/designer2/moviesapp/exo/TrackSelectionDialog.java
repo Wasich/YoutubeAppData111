@@ -99,25 +99,28 @@
 //        /* initialParameters = */ parameters,
 //        /* allowAdaptiveSelections =*/ true,
 //        /* allowMultipleOverrides= */ false,
-//        /* onClickListener= */ (dialog, which) -> {
-//          DefaultTrackSelector.ParametersBuilder builder = parameters.buildUpon();
-//          for (int i = 0; i < mappedTrackInfo.getRendererCount(); i++) {
-//            builder
-//                .clearSelectionOverrides(/* rendererIndex= */ i)
-//                .setRendererDisabled(
-//                    /* rendererIndex= */ i,
-//                    trackSelectionDialog.getIsDisabled(/* rendererIndex= */ i));
-//            List<SelectionOverride> overrides =
-//                trackSelectionDialog.getOverrides(/* rendererIndex= */ i);
-//            if (!overrides.isEmpty()) {
-//              builder.setSelectionOverride(
-//                  /* rendererIndex= */ i,
-//                  mappedTrackInfo.getTrackGroups(/* rendererIndex= */ i),
-//                  overrides.get(0));
-//            }
-//          }
-//          trackSelector.setParameters(builder);
-//        },
+//        /* onClickListener= */ new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    DefaultTrackSelector.ParametersBuilder builder = parameters.buildUpon();
+//                    for (int i = 0; i < mappedTrackInfo.getRendererCount(); i++) {
+//                        builder
+//                                .clearSelectionOverrides(/* rendererIndex= */ i)
+//                                .setRendererDisabled(
+//                                        /* rendererIndex= */ i,
+//                                        trackSelectionDialog.getIsDisabled(/* rendererIndex= */ i));
+//                        List<SelectionOverride> overrides =
+//                                trackSelectionDialog.getOverrides(/* rendererIndex= */ i);
+//                        if (!overrides.isEmpty()) {
+//                            builder.setSelectionOverride(
+//                                    /* rendererIndex= */ i,
+//                                    mappedTrackInfo.getTrackGroups(/* rendererIndex= */ i),
+//                                    overrides.get(0));
+//                        }
+//                    }
+//                    trackSelector.setParameters(builder);
+//                }
+//            },
 //        onDismissListener);
 //    return trackSelectionDialog;
 //  }
@@ -245,12 +248,20 @@
 //    viewPager.setAdapter(new FragmentAdapter(getChildFragmentManager()));
 //    tabLayout.setupWithViewPager(viewPager);
 //    tabLayout.setVisibility(tabFragments.size() > 1 ? View.VISIBLE : View.GONE);
-//    cancelButton.setOnClickListener(view -> dismiss());
+//    cancelButton.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            TrackSelectionDialog.this.dismiss();
+//        }
+//    });
 //    okButton.setOnClickListener(
-//        view -> {
-//          onClickListener.onClick(getDialog(), DialogInterface.BUTTON_POSITIVE);
-//          dismiss();
-//        });
+//            new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    onClickListener.onClick(TrackSelectionDialog.this.getDialog(), DialogInterface.BUTTON_POSITIVE);
+//                    TrackSelectionDialog.this.dismiss();
+//                }
+//            });
 //    return dialogView;
 //  }
 //
